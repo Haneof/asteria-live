@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# 环境与密钥
+.env
+.env.*
+!.env.example
+
+# 测试与缓存
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 素材与产物（大文件不入库）
+data/
+artifacts/
+*.mp4
+*.mov
+*.wav
+*.mp3
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
