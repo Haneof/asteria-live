@@ -31,9 +31,15 @@
 - 负责人：主控 Agent
 - 范围：读取本地动作视频 → 话术 → TTS 音频 → 口型 → 音视频合成 → 预览/测试推流 → 指标记录
 - 交付物：可重复闭环运行 + 指标
-- 验收标准：至少一次真实可重复闭环；明确哪些真实、哪些 Mock
-- 测试命令：闭环脚本 + 指标断言
-- 状态：TODO
+- 验收标准：至少一次真实可重复闭环；明确真实/Mock 边界
+- 测试命令：`pytest tests/test_g2_loop.py -q`、`python3 scripts/run_g2_loop.py --video data/raw/Big_Buck_Bunny_720_10s_1MB.mp4`
+- 状态：PASS
+- 证据（2026-10-25）：
+  - 15/15 测试通过（含 3 项 G2 端到端：ffprobe 真实元数据、真实 WAV 流校验、全链路闭环）
+  - 实测闭环：1280x720@30fps 输入，输出 2720ms，音画偏差 0ms
+  - 真实组件：ffprobe 视频读取、FFmpeg h264+aac mux、指标测量
+  - Mock 组件（如实标注）：话术（LLM 未接入）、TTS 语音（正弦波占位）、口型（直通）
+  - 素材：Blender 基金会 CC 授权测试片（test-videos.co.uk），720p
 
 ### G3-001 动作图谱与安全路径
 
