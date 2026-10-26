@@ -21,6 +21,7 @@ htmlcov/
 # 素材与产物（大文件不入库）
 data/
 artifacts/
+logs/
 *.mp4
 *.mov
 *.wav
